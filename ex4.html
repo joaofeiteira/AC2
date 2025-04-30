@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha</title>
+</head>
+<body>
+
+    <h2>Escolha seu Personagem</h2>
+    <label><input type="radio" name="personagem" value="mago"> Mago</label><br>
+    <label><input type="radio" name="personagem" value="guerreiro"> Guerreiro</label><br>
+    <label><input type="radio" name="personagem" value="arqueiro"> Arqueiro</label><br><br>
+
+    <button onclick="confirmarEscolha()">Confirmar Escolha</button>
+
+    <div id="resultado"></div>
+    <img id="imagem" src="" alt="Imagem do personagem" style="display:none;">
+
+    <script>
+        function confirmarEscolha() {
+            let personagemSelecionado = document.querySelector('input[name="personagem"]:checked');
+
+            if (personagemSelecionado) {
+                let resultado = document.getElementById("resultado");
+                let imagem = document.getElementById("imagem");
+                let escolha = personagemSelecionado.value;
+
+                let mensagens = {
+                    mago: "Você escolheu ser um Mago! Prepare-se para lançar feitiços!",
+                    guerreiro: "Você escolheu ser um Guerreiro! Prepare-se para batalhas épicas!",
+                    arqueiro: "Você escolheu ser um Arqueiro! Prepare-se para acertar alvos distantes!"
+                };
+
+                let imagens = {
+                    mago: "https://png.pngtree.com/background/20230611/original/pngtree-an-old-wizard-holding-a-ball-that-he-rolled-in-his-picture-image_3169742.jpg",
+                    guerreiro: "https://i.pinimg.com/originals/94/13/b7/9413b7448b8ff32c8b3e983be4f25f28.jpg",
+                    arqueiro: "https://s1.1zoom.me/big0/716/408409-sepik.jpg"
+                };
+
+                resultado.textContent = mensagens[escolha];
+                imagem.src = imagens[escolha];
+                imagem.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>

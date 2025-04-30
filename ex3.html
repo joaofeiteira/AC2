@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+
+    <script>function adiconarItem() {
+            var campoTexto = document.getElementById("cTexto");
+            var conteudoTexto = campoTexto.value;
+
+            var lista = document.getElementById("lista");
+
+            var item = document.createElement("li");
+            item.innerText = conteudoTexto;
+
+            var checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+
+            item.appendChild(checkbox);
+            lista.appendChild(item);
+
+
+            checkbox.onclick = function feita() {
+                if (checkbox.checked) {
+                    item.classList.add("feita");
+                } else {
+                    item.classList.remove("feita");
+                }
+            }
+
+            campoTexto.value = "";
+        }</script>
+
+    <style>
+        .feita {
+            text-decoration: line-through;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Crie um campo de texto com um botão "Adicionar". Sempre que o usuário digitar algo e clicar no botão, o item é adicionado a uma lista de tarefas abaixo. Adicione, para cada tarefa, um checkbox para o usuário
+    marcar como concluída e, ao fazer isso, o texto fica riscado e em vermelho. -->
+    <label>Lista de Afazeres:</label>
+    <input type="text" name="" id="cTexto">
+    <br>
+    <br>
+    <button onclick="adiconarItem()">Adicionar</button>
+    <br>
+    <br>
+    <ul id="lista"></ul>
+</body>
+
+</html>

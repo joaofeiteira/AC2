@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinha</title>
+
+    <script>
+        var numAleatorio = Math.floor(Math.random() * 10) + 1;
+
+        function verificarAcerto() {
+            var numEscolhido = document.getElementById("numEscolhido").value;
+            var resultado = document.getElementById("resultado");
+
+            if (numEscolhido == numAleatorio) {
+                resultado.textContent = "Acertou!"
+            }else if (numEscolhido < numAleatorio) {
+                resultado.textContent = "O número é menor!"
+            }else{
+                resultado.textContent = "O número é maior!"
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <!-- Crie uma página com campo texto e um botão "Adivinhe". A cada clique, o número informado pelo usuário
+é comparado com um valor randômico gerado no carregar a página. Mostre em um <p> se o usuário acertou
+ou se o número é maior ou menor que o número sorteado -->
+
+    <label>Digite um número entre 1 e 10:</label>
+    <br>
+    <input type="text" name="texto" id="numEscolhido">
+    <br>
+    <button onclick="verificarAcerto()">Adivinhe</button>
+    <br>
+    <br>
+    <p id="resultado"></p>
+</body>
+
+</html>
